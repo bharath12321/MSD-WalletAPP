@@ -25,16 +25,38 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.deepPurpleAccent,
       ),
-      body: Center(
-        child: IconButton(
-          onPressed: (){
-            print('Wallet Pressed');
-          },
-          icon: Icon(Icons.account_balance_wallet),
-          color: Colors.deepPurple,
-          iconSize: 50.0,
-        )
-    ),
+      body: Row(
+        children: <Widget>[
+          Expanded(
+              child: Image.asset('app_icons/app-icon.png'),
+            flex: 3,
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(30.0),
+              color: Colors.cyan,
+              child: Text('1'),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(30.0),
+              color: Colors.red,
+              child: Text('2'),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(30.0),
+              color: Colors.yellow,
+              child: Text('3'),
+            ),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {  },
         child: Text('Click'),
