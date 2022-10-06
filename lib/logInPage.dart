@@ -12,7 +12,7 @@ class LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.indigo.shade900,
+        backgroundColor: Colors.black,
         body: SafeArea(
             //Welcome Text
             child: Center(
@@ -21,8 +21,9 @@ class LogInPageState extends State<LogInPage> {
                     children: [
                       Image.asset(
                         'app_icons/app-icon.png',
-                        scale: 5,
+                        scale: 4,
                       ),
+                  SizedBox(height: 75,),
                   const Text(
                     'Welcome!',
                     style: TextStyle(
