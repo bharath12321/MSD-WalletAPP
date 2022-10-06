@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({Key? key}) : super(key: key);
@@ -11,17 +12,22 @@ class LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.indigo.shade900,
         body: SafeArea(
             //Welcome Text
             child: Center(
-                child: Column(children: [
-                  const SizedBox(height: 20),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'app_icons/app-icon.png',
+                        scale: 5,
+                      ),
                   const Text(
                     'Welcome!',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 26.0,
+                        fontSize: 28.0,
                         color: Colors.white),
                   ),
                   const SizedBox(
@@ -35,7 +41,7 @@ class LogInPageState extends State<LogInPage> {
                         color: Colors.white70),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 50,
                   ),
                   //Username/Email
                   Padding(
@@ -91,7 +97,7 @@ class LogInPageState extends State<LogInPage> {
                         child: Text(
                           'Sign In',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black54,
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ),
@@ -99,7 +105,7 @@ class LogInPageState extends State<LogInPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 25),
 
                   // Not a member? Register Now!
                   Row(
@@ -111,7 +117,7 @@ class LogInPageState extends State<LogInPage> {
                       ),
                       Text(
                         'Register now!',
-                        style: TextStyle(color: Colors.cyan),
+                        style: TextStyle(color: Colors.lightBlueAccent),
                       )
                     ],
                   )
