@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1048454456889",
+    "firebase_url": "https://msd-wallet-default-rtdb.firebaseio.com",
     "project_id": "msd-wallet",
     "storage_bucket": "msd-wallet.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "1048454456889-ei3g0130buv5rs9rkibq7t49nftrm173.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1048454456889-tsr33dhumcqc3o01d9a83busm7km0bjq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "bharath.thirunahari.mobileWalletApp"
+              }
             }
           ]
         }
