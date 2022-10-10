@@ -23,7 +23,7 @@ class LogInPageState extends State<LogInPage> {
                         'app_icons/app-icon.png',
                         scale: 4,
                       ),
-                  SizedBox(height: 75,),
+                  const SizedBox(height: 75,),
                   const Text(
                     'Welcome!',
                     style: TextStyle(

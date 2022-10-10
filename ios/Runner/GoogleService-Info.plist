@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1048454456889-tsr33dhumcqc3o01d9a83busm7km0bjq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1048454456889-tsr33dhumcqc3o01d9a83busm7km0bjq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCZI1u9bswaEC0d-xnioAgK8xPCzWGk_l8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1048454456889</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>bharath.thirunahari.mobileWalletApp</string>
+	<key>PROJECT_ID</key>
+	<string>msd-wallet</string>
+	<key>STORAGE_BUCKET</key>
+	<string>msd-wallet.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1048454456889:ios:131d0a325a6bc0aeb44fe8</string>
+	<key>DATABASE_URL</key>
+	<string>https://msd-wallet-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
