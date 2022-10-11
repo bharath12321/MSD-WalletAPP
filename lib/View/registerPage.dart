@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mobile_wallet_app/logInPage.dart';
+import 'package:mobile_wallet_app/View/logInPage.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -140,9 +140,9 @@ class RegisterPageState extends State<RegisterPage> {
                   ),
                   TextButton(
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => LogInPage()),
+                          MaterialPageRoute(builder: (context) => const LogInPage()),
                         );
                       },
                       child: const Text(
