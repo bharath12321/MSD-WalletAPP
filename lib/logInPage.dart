@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_wallet_app/registerPage.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({Key? key}) : super(key: key);
@@ -111,14 +112,23 @@ class LogInPageState extends State<LogInPage> {
                   // Not a member? Register Now!
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        'Not registered? ',
+                    children: [
+                      const Text(
+                        'Not registered?',
                         style: TextStyle(color: Colors.white),
                       ),
-                      Text(
-                        'Register now!',
-                        style: TextStyle(color: Colors.lightBlueAccent),
+                      TextButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => RegisterPage()),
+                            );
+                          },
+                          child: const Text(
+                            'Register now!',
+                             style: TextStyle(color: Colors.lightBlueAccent),
+                          )
+
                       )
                     ],
                   )
