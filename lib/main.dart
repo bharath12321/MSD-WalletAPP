@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_wallet_app/View/newUserPage.dart';
+import 'package:mobile_wallet_app/View/introScreen.dart';
 import 'package:mobile_wallet_app/View/registerPage.dart';
 import 'View/logInPage.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NewUserPage(),
+      home: IntroPage(),
     );
   }
 }
