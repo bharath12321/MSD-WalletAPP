@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mobile_wallet_app/View/IntroScreens/introPage1.dart';
-import 'package:mobile_wallet_app/View/IntroScreens/introPage2.dart';
-import 'package:mobile_wallet_app/View/IntroScreens/introPage3.dart';
+import 'package:mobile_wallet_app/View/IntroScreenPages/introPage1.dart';
+import 'package:mobile_wallet_app/View/IntroScreenPages/introPage2.dart';
+import 'package:mobile_wallet_app/View/IntroScreenPages/introPage3.dart';
 import 'package:mobile_wallet_app/View/logInPage.dart';
 import 'package:mobile_wallet_app/View/registerPage.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -33,7 +33,7 @@ class IntroPageState extends State<IntroPage> {
                 lastPage = (index == 2);
               });
             },
-            children: [
+            children: const [
               IntroPage1(),
               IntroPage2(),
               IntroPage3(),
@@ -50,10 +50,11 @@ class IntroPageState extends State<IntroPage> {
                     onTap: (){
                       pageController.jumpToPage(2);
                       },
-                    child: Text(
+                    child: const Text(
                       'Skip',
                       style: TextStyle(
                         fontSize: 20.0,
+                        color: Colors.white
                       ),
                     ),
                   ),
@@ -61,6 +62,11 @@ class IntroPageState extends State<IntroPage> {
                   SmoothPageIndicator(
                     controller: pageController,
                     count: 3,
+                    effect: const WormEffect(
+                      dotColor: Colors.white60,
+                      activeDotColor: Colors.white
+                    ),
+
                   ),
                   //next or done button
                   lastPage ?
@@ -78,7 +84,7 @@ class IntroPageState extends State<IntroPage> {
                       onTap: (){
                         pageController.nextPage(duration: Duration(milliseconds: 250), curve: Curves.easeIn);
                     },
-                    child: Icon(Icons.arrow_forward_rounded,
+                    child: const Icon(Icons.arrow_forward_rounded,
                         color: Colors.white, size: 50.0
                     ),
                   ),
