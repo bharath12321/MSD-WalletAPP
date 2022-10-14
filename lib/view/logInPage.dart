@@ -73,7 +73,7 @@ class LogInPageState extends State<LogInPage> {
                                 borderRadius: BorderRadius.circular(32.0)),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 5.0),
-                              child: reusableTextField("Enter Email", Icons.person_outline, false, emailController),
+                              child: reusableTextField("Enter Email", Icons.email_outlined, false, emailController),
                             )),
                       ),
                       const SizedBox(height: 10),
