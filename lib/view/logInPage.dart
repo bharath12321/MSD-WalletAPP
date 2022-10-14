@@ -105,12 +105,12 @@ class LogInPageState extends State<LogInPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text(
-                            'Not registered?',
+                            "Don't have an account?",
                             style: TextStyle(color: Colors.white),
                           ),
                           TextButton(
                               onPressed: (){
-                                Navigator.pushReplacement(
+                                Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => const RegisterPage()),
                                 );

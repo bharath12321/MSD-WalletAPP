@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/View/logInPage.dart';
+import 'package:mobile_wallet_app/view/homePage.dart';
 import 'package:mobile_wallet_app/view/reusableWidgets/reusable_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -112,37 +113,13 @@ class RegisterPageState extends State<RegisterPage> {
                 context.read<AuthenticationService>().signUp(
                   email: emailController.text.trim(),
                   password: passwordController.text.trim(),
-                );
+                ).then((value) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()));
+                });
               }),
 
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 90),
-              //   child: GestureDetector(
-              //     onTap: () {
-              //       context.read<AuthenticationService>().signUp(
-              //             email: emailController.text.trim(),
-              //             password: passwordController.text.trim(),
-              //           );
-              //     },
-              //     child: Container(
-              //       padding: const EdgeInsets.all(10.0),
-              //       decoration: BoxDecoration(
-              //         color: Colors.lightBlueAccent,
-              //         borderRadius: BorderRadius.circular(12.0),
-              //       ),
-              //       child: const Center(
-              //         child: Text(
-              //           'Register',
-              //           style: TextStyle(
-              //             color: Colors.black,
-              //             fontWeight: FontWeight.bold,
-              //             fontSize: 18,
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
               const SizedBox(height: 25),
 
               // Not a member? Register Now!

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_wallet_app/View/logInPage.dart';
 import 'package:mobile_wallet_app/model/authenticationService.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +21,11 @@ class HomePage extends StatelessWidget {
               ),),
             ElevatedButton(
               onPressed: (){
-                context.read<AuthenticationService>().signOut();
+                context.read<AuthenticationService>().signOut().then((value) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const LogInPage()));
+                });
               },
               child: const Text(
                 'Sign Out',
