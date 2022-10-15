@@ -1,4 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:mobile_wallet_app/view/reusableWidgets/iconWidget.dart';
+
+import '../../model/authenticationService.dart';
+
 
 //reusable text field
 TextField reusableTextField(String text, IconData icon, bool isPassword, TextEditingController controller){
@@ -51,3 +58,26 @@ Container signInSignUpButton(bool isLogin, Function onTap){
     ),
   );
 }
+
+//log out settings
+Widget buildLogout() => SimpleSettingsTile(
+  title: 'Log Out',
+  subtitle: "",
+  leading: const IconWidget(icon: Icons.logout, color: Colors.lightBlueAccent),
+  onTap: () {
+    FirebaseAuth.instance.signOut();
+    print('Clicked logout');
+  },
+
+);
+
+//Delete Account Settings
+Widget buildDeleteAccount() => SimpleSettingsTile(
+  title: 'Delete Account',
+  subtitle: "",
+  leading: const IconWidget(icon: Icons.delete, color: Colors.redAccent),
+  onTap: () {
+    print('Clicked Delete Account');
+  },
+
+);
