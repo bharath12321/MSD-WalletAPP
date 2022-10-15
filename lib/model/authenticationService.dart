@@ -1,6 +1,5 @@
 import 'package:mobile_wallet_app/main.dart';
 import 'package:path/path.dart' as Path;
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobile_wallet_app/View/logInPage.dart';
@@ -28,13 +27,13 @@ class AuthenticationService{
   Future<String?> signUp({email, password}) async{
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+      signIn(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       return e.message;
     }
-    //navigatorKey.currentState!.popUntil((route) => route.isFirst);
 
 
-    //signIn(email: email, password: password);
+    //
     return null;
   }
 

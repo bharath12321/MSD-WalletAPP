@@ -113,11 +113,7 @@ class RegisterPageState extends State<RegisterPage> {
                 context.read<AuthenticationService>().signUp(
                   email: emailController.text.trim(),
                   password: passwordController.text.trim(),
-                ).then((value) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()));
-                });
+                );
               }),
 
               const SizedBox(height: 25),
