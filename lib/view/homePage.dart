@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.black,
             color: Colors.white,
             activeColor: Colors.white,
-            tabBackgroundColor: Colors.cyanAccent.withOpacity(0.2),//Colors.purpleAccent.withOpacity(0.3),
+            tabBackgroundColor: Colors.white24,//Colors.purpleAccent.withOpacity(0.3),
             gap: 6.0,
             onTabChange: (selectedIndex){
               this._selectedIndex = selectedIndex;

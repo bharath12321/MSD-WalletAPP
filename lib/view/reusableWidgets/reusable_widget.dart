@@ -19,10 +19,13 @@ TextField reusableTextField(String text, IconData icon, bool isPassword,
     decoration: InputDecoration(
       prefixIcon: Icon(
         icon,
-        color: Colors.white70,
+        color: Colors.white,
       ),
       //labelText: text,
       hintText: text,
+      hintStyle: TextStyle(
+        color: Colors.white70
+      ),
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: Colors.white.withOpacity(0.3),
       border: OutlineInputBorder(
@@ -64,6 +67,36 @@ Container signInSignUpButton(bool isLogin, Function onTap) {
   );
 }
 
+//Log out button
+Container logOutButton(Function onTap) {
+  return Container(
+    width: 150, //MediaQuery.of(context).size.width,
+    height: 50,
+    margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
+    child: ElevatedButton(
+      onPressed: () {
+        onTap();
+      },
+      style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.pressed)) {
+              return Colors.grey.shade400;
+            }
+            return Colors.white;
+          }),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
+          )),
+      child: const Text(
+        'LOG OUT',
+        style: TextStyle(
+            color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
+      ),
+    ),
+  );
+}
+
 //Profile settings tab
 Widget buildProfileTab(IconData icon, String text) {
   return GestureDetector(
@@ -72,14 +105,32 @@ Widget buildProfileTab(IconData icon, String text) {
         print('email');
       } else if(text == 'Password'){
         print('password');
-      } else if(text == 'Settings'){
+      } else if(text == 'Account Settings'){
         print('settings');
       } return;
     },
     child: Container(
       decoration: const BoxDecoration(
-        color: Colors.black,
+        color: Colors.white10,
         borderRadius: BorderRadius.all(Radius.circular(30)),
+        border: Border(
+          top: BorderSide(
+            color: Colors.white38,
+            width: 0.5,
+          ),
+          bottom: BorderSide(
+            color: Colors.white38,
+            width: 0.5,
+          ),
+          right: BorderSide(
+            color: Colors.white38,
+            width: 0.5,
+          ),
+          left: BorderSide(
+            color: Colors.white38,
+            width: 0.5,
+          ),
+        )
       ),
       height: 50,
       width: 500,

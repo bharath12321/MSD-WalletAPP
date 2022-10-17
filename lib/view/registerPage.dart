@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/View/logInPage.dart';
 import 'package:mobile_wallet_app/view/homePage.dart';
 import 'package:mobile_wallet_app/view/reusableWidgets/reusable_widget.dart';
+import 'package:mobile_wallet_app/view_model/userViewModel.dart';
 import 'package:provider/provider.dart';
 
 import '../model/authenticationService.dart';
@@ -27,10 +28,13 @@ class RegisterPageState extends State<RegisterPage> {
                 gradient: LinearGradient(
                     colors: [
                       Colors.black,
-                      Colors.purple.shade900,
-                      Colors.purple.shade600,
-                      Colors.purple,
-                      Colors.purple.shade200,
+                      Colors.blueGrey.shade900,
+                      Colors.grey.shade900
+                      // Colors.black,
+                      // Colors.purple.shade900,
+                      // Colors.purple.shade600,
+                      // Colors.purple,
+                      // Colors.purple.shade200,
                     ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
             //Welcome Text
             child: SafeArea(
@@ -70,7 +74,7 @@ class RegisterPageState extends State<RegisterPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 45.0),
                 child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.black.withOpacity(0.3),
                         border: Border.all(color: Colors.white60),
                         borderRadius: BorderRadius.circular(32.0)),
                     child: Padding(
@@ -85,7 +89,7 @@ class RegisterPageState extends State<RegisterPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 45.0),
                 child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.black.withOpacity(0.3),
                         border: Border.all(color: Colors.white60),
                         borderRadius: BorderRadius.circular(32.0)),
                     child: Padding(
@@ -98,7 +102,7 @@ class RegisterPageState extends State<RegisterPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 45.0),
                 child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.black.withOpacity(0.3),
                         border: Border.all(color: Colors.white60),
                         borderRadius: BorderRadius.circular(32.0)),
                     child: Padding(
@@ -110,6 +114,7 @@ class RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 15),
 
               signInSignUpButton(false, () {
+                UserViewModel Newuser = UserViewModel(usernameController.text, emailController.text.trim(), passwordController.text.trim());
                 context.read<AuthenticationService>().signUp(
                   email: emailController.text.trim(),
                   password: passwordController.text.trim(),

@@ -36,7 +36,13 @@ class Home extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        theme: ThemeData.dark(),
+        theme: ThemeData(
+          fontFamily: 'Nunito',
+          textTheme: TextTheme(
+            bodyText1: TextStyle(color: Colors.white),
+            bodyText2: TextStyle(color: Colors.white),
+          )
+        ),
         debugShowCheckedModeBanner: false,
         home: AuthenticationWrapper(),
       ),

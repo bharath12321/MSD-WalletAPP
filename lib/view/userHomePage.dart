@@ -18,11 +18,14 @@ class _UserHomePageState extends State<UserHomePage> {
         decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [
+                  Colors.black,
+                  Colors.blueGrey.shade900,
+                  Colors.grey.shade900
                   //Colors.black,
-                  Colors.purple.shade900,
-                  Colors.purple.shade600,
-                  Colors.purple,
-                  Colors.purple.shade200,
+                  // Colors.purple.shade900,
+                  // Colors.purple.shade600,
+                  // Colors.purple,
+                  // Colors.purple.shade200,
                 ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: SafeArea(
           child: Center(
@@ -35,17 +38,6 @@ class _UserHomePageState extends State<UserHomePage> {
                     fontWeight: FontWeight.bold,
                     fontSize: 38.0,
                   ),),
-                ElevatedButton(
-                  onPressed: (){
-                    context.read<AuthenticationService>().signOut();
-                  },
-                  child: const Text(
-                    'Sign Out',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.0
-                    ),
-                  ),)
               ],
             ),
           ),

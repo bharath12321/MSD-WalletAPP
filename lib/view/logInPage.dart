@@ -26,10 +26,13 @@ class LogInPageState extends State<LogInPage> {
                 gradient: LinearGradient(
                     colors: [
                       Colors.black,
-                      Colors.purple.shade900,
-                      Colors.purple.shade600,
-                      Colors.purple,
-                      Colors.purple.shade200,
+                      Colors.blueGrey.shade900,
+                      Colors.grey.shade900
+                      // Colors.black,
+                      // Colors.purple.shade900,
+                      // Colors.purple.shade600,
+                      // Colors.purple,
+                      // Colors.purple.shade200,
                     ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
             //Welcome Text
             child: SafeArea(
@@ -44,7 +47,7 @@ class LogInPageState extends State<LogInPage> {
                           ),
                       const SizedBox(height: 35,),
                       const Text(
-                        'WELCOME',
+                        'Welcome',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 30.0,
@@ -68,12 +71,12 @@ class LogInPageState extends State<LogInPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 45.0),
                         child: Container(
                             decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.3),
+                                color: Colors.black.withOpacity(0.3),
                                 border: Border.all(color: Colors.white60),
                                 borderRadius: BorderRadius.circular(32.0)),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 5.0),
-                              child: reusableTextField("Enter Email", Icons.person_outline, false, emailController),
+                              child: reusableTextField("Enter Email", Icons.email_outlined, false, emailController),
                             )),
                       ),
                       const SizedBox(height: 10),
@@ -83,7 +86,7 @@ class LogInPageState extends State<LogInPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 45.0),
                         child: Container(
                             decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.3),
+                                color: Colors.black.withOpacity(0.3),
                                 border: Border.all(color: Colors.white60),
                                 borderRadius: BorderRadius.circular(32.0)),
                             child: Padding(
@@ -110,7 +113,7 @@ class LogInPageState extends State<LogInPage> {
                           ),
                           TextButton(
                               onPressed: (){
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(builder: (context) => const RegisterPage()),
                                 );
