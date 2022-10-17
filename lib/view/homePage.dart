@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/model/authenticationService.dart';
 import 'package:mobile_wallet_app/view/profilePage.dart';
-import 'package:mobile_wallet_app/view/settingsPage.dart';
+import 'package:mobile_wallet_app/view/addWalletPage.dart';
 import 'package:mobile_wallet_app/view/userHomePage.dart';
 import 'package:mobile_wallet_app/view/walletsPage.dart';
 import 'package:provider/provider.dart';
@@ -21,8 +21,8 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> pages = [
     const UserHomePage(),
     const WalletsPage(),
+    const AddWalletPage(),
     const ProfilePage(),
-    const SettingsPage()
   ];
 
   @override
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.black,
             color: Colors.white,
             activeColor: Colors.white,
-            tabBackgroundColor: Colors.white.withOpacity(0.1),//Colors.purpleAccent.withOpacity(0.3),
+            tabBackgroundColor: Colors.cyanAccent.withOpacity(0.2),//Colors.purpleAccent.withOpacity(0.3),
             gap: 6.0,
             onTabChange: (selectedIndex){
               this._selectedIndex = selectedIndex;
@@ -54,16 +54,9 @@ class _HomePageState extends State<HomePage> {
                   setState(() {pages[2];});
                   break;
                 case 3:
-                  setState(() {pages[3];});
+                  setState(() {pages[2];});
                   break;
               }
-              // if(selectedIndex == 3){
-              //   Navigator.push(
-              //       context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const SettingsPage()),
-              //   );
-              // }
               print(_selectedIndex);
             },
             padding: const EdgeInsets.all(14.0),
@@ -77,12 +70,12 @@ class _HomePageState extends State<HomePage> {
                 text: 'My Wallets',
               ),
               GButton(
-                icon: Icons.person,
-                text: 'Profile',
+                icon: Icons.add,
+                text: 'Add Wallet',
               ),
               GButton(
-                icon: Icons.settings,
-                text: 'Settings',
+                icon: Icons.person,
+                text: 'Profile',
               ),
             ],
           ),

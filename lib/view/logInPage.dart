@@ -44,7 +44,7 @@ class LogInPageState extends State<LogInPage> {
                           ),
                       const SizedBox(height: 35,),
                       const Text(
-                        'Welcome!',
+                        'WELCOME',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 30.0,

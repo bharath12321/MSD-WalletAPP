@@ -6,9 +6,9 @@ import 'package:mobile_wallet_app/view/reusableWidgets/iconWidget.dart';
 
 import '../../model/authenticationService.dart';
 
-
 //reusable text field
-TextField reusableTextField(String text, IconData icon, bool isPassword, TextEditingController controller){
+TextField reusableTextField(String text, IconData icon, bool isPassword,
+    TextEditingController controller) {
   return TextField(
     controller: controller,
     obscureText: isPassword,
@@ -16,23 +16,28 @@ TextField reusableTextField(String text, IconData icon, bool isPassword, TextEdi
     autocorrect: !isPassword,
     cursorColor: Colors.white,
     style: TextStyle(color: Colors.white.withOpacity(0.9)),
-    decoration: InputDecoration(prefixIcon: Icon(icon, color: Colors.white70,),
+    decoration: InputDecoration(
+      prefixIcon: Icon(
+        icon,
+        color: Colors.white70,
+      ),
       //labelText: text,
       hintText: text,
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: Colors.white.withOpacity(0.3),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(30.0), borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
+      border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30.0),
+          borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
     ),
-    keyboardType: isPassword
-        ? TextInputType.visiblePassword
-        : TextInputType.emailAddress,
+    keyboardType:
+        isPassword ? TextInputType.visiblePassword : TextInputType.emailAddress,
   );
 }
 
 //reusable button
-Container signInSignUpButton(bool isLogin, Function onTap){
+Container signInSignUpButton(bool isLogin, Function onTap) {
   return Container(
-    width: 150,//MediaQuery.of(context).size.width,
+    width: 150, //MediaQuery.of(context).size.width,
     height: 50,
     margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
     decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
@@ -41,43 +46,75 @@ Container signInSignUpButton(bool isLogin, Function onTap){
         onTap();
       },
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.resolveWith((states) {
-          if(states.contains(MaterialState.pressed)){
-            return Colors.grey.shade400;
-          }
-          return Colors.white;
-        }),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
-      )
-      ), child: Text(
-      isLogin ? 'SIGN IN' : 'REGISTER',
-      style: const TextStyle(
-        color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
-    ),
+          backgroundColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.pressed)) {
+              return Colors.grey.shade400;
+            }
+            return Colors.white;
+          }),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
+          )),
+      child: Text(
+        isLogin ? 'SIGN IN' : 'REGISTER',
+        style: const TextStyle(
+            color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
+      ),
     ),
   );
 }
 
-//log out settings
-Widget buildLogout() => SimpleSettingsTile(
-  title: 'Log Out',
-  subtitle: "",
-  leading: const IconWidget(icon: Icons.logout, color: Colors.lightBlueAccent),
-  onTap: () {
-    FirebaseAuth.instance.signOut();
-    print('Clicked logout');
-  },
-
-);
-
-//Delete Account Settings
-Widget buildDeleteAccount() => SimpleSettingsTile(
-  title: 'Delete Account',
-  subtitle: "",
-  leading: const IconWidget(icon: Icons.delete, color: Colors.redAccent),
-  onTap: () {
-    print('Clicked Delete Account');
-  },
-
-);
+//Profile settings tab
+Widget buildProfileTab(IconData icon, String text) {
+  return GestureDetector(
+    onTap: (){
+      if(text == 'Email'){
+        print('email');
+      } else if(text == 'Password'){
+        print('password');
+      } else if(text == 'Settings'){
+        print('settings');
+      } return;
+    },
+    child: Container(
+      decoration: const BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.all(Radius.circular(30)),
+      ),
+      height: 50,
+      width: 500,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(left: 12.0),
+                child: Icon(
+                  icon,
+                  size: 25,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(width: 10.0),
+              Text(
+                  text,
+                  style: const TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white)),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.only(right: 12.0),
+            child: Icon(
+              Icons.keyboard_arrow_right_rounded,
+              size: 30.0,
+              color: Colors.white,
+            ),
+          )
+        ],
+      ),
+    ),
+  );
+}
