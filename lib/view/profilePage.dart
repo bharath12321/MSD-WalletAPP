@@ -39,7 +39,7 @@ class ProfilePage extends StatelessWidget {
                         backgroundImage: AssetImage('app_icons/user.png'),
                         backgroundColor: Colors.white10,
                       ),
-                      Text(
+                      const Text(
                         'Bharath',
                         style: TextStyle(
                           color: Colors.white,
@@ -48,13 +48,12 @@ class ProfilePage extends StatelessWidget {
                           ),
                       ),
                       const SizedBox(height: 5.0),
-                      Text(
+                      const Text(
                         'bharath@gmail.com',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
-                          fontStyle: FontStyle.italic
                         ),
                       ),
                       const SizedBox(height: 20),
