@@ -15,6 +15,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class RegisterPageState extends State<RegisterPage> {
+
+  static late UserViewModel newUser;
   //text field controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -114,10 +116,10 @@ class RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 15),
 
               signInSignUpButton(false, () {
-                UserViewModel Newuser = UserViewModel(usernameController.text, emailController.text.trim(), passwordController.text.trim());
+                newUser = UserViewModel(usernameController.text, emailController.text.trim(), passwordController.text.trim());
                 context.read<AuthenticationService>().signUp(
-                  email: emailController.text.trim(),
-                  password: passwordController.text.trim(),
+                  email: newUser.email,
+                  password: newUser.password,
                 );
               }),
 
