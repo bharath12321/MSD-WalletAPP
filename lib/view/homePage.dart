@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/model/authenticationService.dart';
 import 'package:mobile_wallet_app/view/profilePage.dart';
-import 'package:mobile_wallet_app/view/addWalletPage.dart';
+import 'package:mobile_wallet_app/view/cryptoPage.dart';
 import 'package:mobile_wallet_app/view/userHomePage.dart';
 import 'package:mobile_wallet_app/view/walletsPage.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> pages = [
     const UserHomePage(),
     const WalletsPage(),
-    const AddWalletPage(),
+    const CryptoWalletPage(),
     const ProfilePage(),
   ];
 
@@ -70,8 +70,8 @@ class _HomePageState extends State<HomePage> {
                 text: 'My Wallets',
               ),
               GButton(
-                icon: Icons.add,
-                text: 'Add Wallet',
+                icon: Icons.account_balance_wallet_rounded,
+                text: 'Crypto',
               ),
               GButton(
                 icon: Icons.person,
