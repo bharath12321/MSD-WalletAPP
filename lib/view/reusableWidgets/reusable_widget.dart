@@ -207,8 +207,19 @@ Widget cardCrypto(
     width: width,
     padding: EdgeInsets.all(padding),
     decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(15))),
+      borderRadius: BorderRadius.all(Radius.circular(15)),
+      gradient: const LinearGradient(
+          colors: [
+            Color.fromRGBO(20, 30, 48, 1.0),
+            Color.fromRGBO(36, 59, 85, 1.0),
+          ], begin: Alignment.centerLeft, end: Alignment.centerRight),
+        border: const Border(
+          top: BorderSide(color: Colors.white30, width: 0.9),
+          right: BorderSide(color: Colors.white30, width: 0.9),
+          bottom: BorderSide(color: Colors.white30, width: 0.9),
+          left: BorderSide(color: Colors.white30, width: 0.9),
+        ),
+    ),
     child: child,
   );
 }

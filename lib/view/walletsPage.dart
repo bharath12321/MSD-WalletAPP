@@ -196,6 +196,9 @@ class WalletsPage extends StatelessWidget {
                                           Spacer(),
                                           Text(
                                             cards[index2].expenses[index].expense,
+                                            style: TextStyle(
+                                              color: Colors.red.shade400
+                                            ),
                                           )
                                         ],
                                       ),

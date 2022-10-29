@@ -12,90 +12,118 @@ class CryptoWalletPage extends StatefulWidget {
 class _CryptoWalletPageState extends State<CryptoWalletPage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 25,
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(children: [
-              SizedBox(
-                width: 20,
-              ),
-              _cardWalletBalance(context,
-                    total: '\$39.589',
-                    totalCrypto: '7.251332 BTC',
-                    precent: 7.999),
-              _cardWalletBalance(context,
-                  total: '\$43.589',
-                  totalCrypto: '5.251332 ETH',
-                  precent: -2.999),
-            ]),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Sorted by higher %',
-                    style: TextStyle(color: Colors.black45)),
-                Row(children: [
-                  Text(
-                    '24H',
-                    style: TextStyle(color: Colors.black45),
-                  ),
-                  Icon(Icons.keyboard_arrow_down, color: Colors.black45),
-                ])
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [
+                Colors.black,
+                Colors.blueGrey.shade900,
+                Colors.grey.shade900
+                //Colors.black,
+                // Colors.purple.shade900,
+                // Colors.purple.shade600,
+                // Colors.purple,
+                // Colors.purple.shade200,
+              ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+        child: SafeArea(
+          child: Stack(
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
                 child: Column(
-                  children: [
-                    _listCryptoItem(
-                      iconUrl:
-                      'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/128/Bitcoin-icon.png',
-                      myCrypto: '3.529020 BTC',
-                      myBalance: '\$ 5.441',
-                      myProfit: '\$19.153',
-                      precent: 4.32,
+                children: [
+                  Text(
+                    'My Crypto',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40.0
                     ),
-                    _listCryptoItem(
-                      iconUrl:
-                      'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/128/Ethereum-icon.png',
-                      myCrypto: '12.83789 ETH',
-                      myBalance: '\$ 401',
-                      myProfit: '\$4.822',
-                      precent: 3.97,
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                        children: [
+                      SizedBox(
+                        width: 20,
+                      ),
+                      _cardWalletBalance(context,
+                          total: '\$39.589',
+                          totalCrypto: '7.251332 BTC',
+                          precent: 7.999),
+                      _cardWalletBalance(context,
+                          total: '\$43.589',
+                          totalCrypto: '5.251332 ETH',
+                          precent: -2.999),
+                    ]),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Sorted by higher %',
+                            style: TextStyle(color: Colors.white)),
+                        Row(children: [
+                          Text(
+                            '24H',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Icon(Icons.keyboard_arrow_down, color: Colors.white),
+                        ])
+                      ],
                     ),
-                    _listCryptoItem(
-                      iconUrl:
-                      'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/128/Ripple-icon.png',
-                      myCrypto: '1911.6374736 XRP',
-                      myBalance: '\$ 0.45',
-                      myProfit: '\$859',
-                      precent: -13.55,
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25),
+                      child: SingleChildScrollView(
+                        physics: BouncingScrollPhysics(),
+                        child: Column(
+                          children: [
+                            _listCryptoItem(
+                              iconUrl:
+                                  'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/128/Bitcoin-icon.png',
+                              myCrypto: '3.529020 BTC',
+                              myBalance: '\$ 5.441',
+                              myProfit: '\$19.153',
+                              precent: 4.32,
+                            ),
+                            _listCryptoItem(
+                              iconUrl:
+                                  'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/128/Ethereum-icon.png',
+                              myCrypto: '12.83789 ETH',
+                              myBalance: '\$ 401',
+                              myProfit: '\$4.822',
+                              precent: 3.97,
+                            ),
+                            _listCryptoItem(
+                              iconUrl:
+                                  'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/128/Ripple-icon.png',
+                              myCrypto: '1911.6374736 XRP',
+                              myBalance: '\$ 0.45',
+                              myProfit: '\$859',
+                              precent: -13.55,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                  ],
-                ),
-              ),
+                  )
+                ],
             ),
-          )
-        ],
-      ),
-    );
+              ),]
+          ),
+        ),
+      );
   }
 
   Widget _cardWalletBalance(BuildContext context,
@@ -113,7 +141,7 @@ class _CryptoWalletPageState extends State<CryptoWalletPage> {
               children: [
                 ClipOval(
                   child: Material(
-                    color: Colors.black87,
+                    color: Colors.blueAccent.withOpacity(0.6),
                     child: InkWell(
                       splashColor: Colors.red, // inkwell color
                       child: SizedBox(
@@ -132,15 +160,18 @@ class _CryptoWalletPageState extends State<CryptoWalletPage> {
                 Expanded(
                   child: Text('Total Wallet Balance',
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black)),
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 16.0)),
                 ),
                 Row(
-                  children: [Text(
-                    'USD',
-                    style: TextStyle(
-                      color: Colors.black
+                  children: [
+                    Text(
+                      'USD',
+                      style: TextStyle(color: Colors.white),
                     ),
-                  ), Icon(Icons.keyboard_arrow_down)],
+                    Icon(Icons.keyboard_arrow_down, color: Colors.white)
+                  ],
                 )
               ],
             ),
@@ -153,7 +184,7 @@ class _CryptoWalletPageState extends State<CryptoWalletPage> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 40,
-                      color: Colors.black87),
+                      color: Colors.white),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 7),
@@ -177,11 +208,11 @@ class _CryptoWalletPageState extends State<CryptoWalletPage> {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
-                  color: Colors.black38),
+                  color: Colors.white.withOpacity(0.8)),
             ),
             Center(
               child: Icon(Icons.keyboard_arrow_down,
-                  size: 30, color: Colors.black45),
+                  size: 30, color: Colors.white),
             )
           ],
         ),
@@ -191,10 +222,10 @@ class _CryptoWalletPageState extends State<CryptoWalletPage> {
 
   Widget _listCryptoItem(
       {required String iconUrl,
-        double precent = 0,
-        required String myCrypto,
-        myBalance,
-        myProfit}) {
+      double precent = 0,
+      required String myCrypto,
+      myBalance,
+      myProfit}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: cardCrypto(
@@ -221,7 +252,7 @@ class _CryptoWalletPageState extends State<CryptoWalletPage> {
                     '$myProfit',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.black45,
+                      color: Colors.white.withOpacity(0.8),
                     ),
                   ),
                 ],
