@@ -78,12 +78,19 @@ class WalletsPage extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    'Balance:',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18.0
-                                    ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text(
+                                        'Balance:',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18.0
+                                        ),
+                                      ),
+                                      //Icon(Icons.account_balance, color: Colors.white,),
+                                      Image.asset(cards[index].bankLogo, scale: 5),
+                                    ],
                                   ),
                                   Text(
                                     cards[index].balance,
