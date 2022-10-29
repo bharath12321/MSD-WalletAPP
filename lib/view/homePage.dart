@@ -1,3 +1,4 @@
+import 'package:crypto_font_icons/crypto_font_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/model/authenticationService.dart';
 import 'package:mobile_wallet_app/view/profilePage.dart';
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.black,
             color: Colors.white,
             activeColor: Colors.white,
-            tabBackgroundColor: Colors.white24,//Colors.purpleAccent.withOpacity(0.3),
+            tabBackgroundColor: Color.fromRGBO(31, 58, 147, 0.7),//Colors.purpleAccent.withOpacity(0.3),
             gap: 6.0,
             onTabChange: (selectedIndex){
               this._selectedIndex = selectedIndex;
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 text: 'My Wallets',
               ),
               GButton(
-                icon: Icons.account_balance_wallet_rounded,
+                icon: CryptoFontIcons.BTC_ALT,
                 text: 'Crypto',
               ),
               GButton(
