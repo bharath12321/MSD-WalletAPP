@@ -15,14 +15,15 @@ List<TransactionsViewModel> expenses2 = [
 ];
 
 class WalletViewModel{
+  String bankLogo;
   String cardNumber;
   String balance;
   List<TransactionsViewModel> expenses;
 
-  WalletViewModel({required this.cardNumber, required this.balance, required this.expenses});
+  WalletViewModel({required this.cardNumber, required this.balance, required this.expenses, required this.bankLogo});
 
 }
 List<WalletViewModel> cards = [
-  WalletViewModel(cardNumber: '1234 5678 9876 5432', balance: '\$1235.36', expenses: expenses1),
-  WalletViewModel(cardNumber: '9876 5432 1012 3456', balance: '\$897.89', expenses: expenses1),
+  WalletViewModel(cardNumber: '1234 5678 9876 5432', balance: '\$1235.36', expenses: expenses1, bankLogo: 'app_icons/card1.png'),
+  WalletViewModel(cardNumber: '9876 5432 1012 3456', balance: '\$897.89', expenses: expenses1, bankLogo: 'app_icons/card2.png'),
 ];
