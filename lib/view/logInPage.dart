@@ -28,11 +28,6 @@ class LogInPageState extends State<LogInPage> {
                       Colors.black,
                       Colors.blueGrey.shade900,
                       Colors.grey.shade900
-                      // Colors.black,
-                      // Colors.purple.shade900,
-                      // Colors.purple.shade600,
-                      // Colors.purple,
-                      // Colors.purple.shade200,
                     ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
             //Welcome Text
             child: SafeArea(

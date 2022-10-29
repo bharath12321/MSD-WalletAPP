@@ -97,6 +97,36 @@ Container logOutButton(Function onTap) {
   );
 }
 
+//main button
+Container mainButton (String title, Function onTap) {
+  return Container(
+    width: 150, //MediaQuery.of(context).size.width,
+    height: 50,
+    margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
+    child: ElevatedButton(
+      onPressed: () {
+        onTap();
+      },
+      style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.pressed)) {
+              return Colors.grey.shade400;
+            }
+            return Colors.white;
+          }),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
+          )),
+      child: Text(
+        title,
+        style: const TextStyle(
+            color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
+      ),
+    ),
+  );
+}
+
 //Profile settings tab
 Widget buildProfileTab(IconData icon, String text) {
   return GestureDetector(
