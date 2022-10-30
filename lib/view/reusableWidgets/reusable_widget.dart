@@ -200,8 +200,108 @@ Widget buildProfileTab(IconData icon, String text) {
   );
 }
 
+//ID card
+Widget identityCard(String idType, IconData idIcon, String fullname, String dob, String idNumber){
+  return Padding(
+    padding: EdgeInsets.fromLTRB(10.0, 10.0, 5.0, 10.0),
+    child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [
+                Color.fromRGBO(0, 4, 40, 1.0),
+                Color.fromRGBO(0, 78, 146, 1.0),
+              ],begin: Alignment.topCenter, end: Alignment.bottomRight),
+          border: const Border(
+            top: BorderSide(color: Colors.white30, width: 0.9),
+            right: BorderSide(color: Colors.white30, width: 0.9),
+            bottom: BorderSide(color: Colors.white30, width: 0.9),
+            left: BorderSide(color: Colors.white30, width: 0.9),
+          ),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        height: 220,
+        width: 375,
+        child: Padding(
+          padding: EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+
+                  Text(
+                    idType,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                    ),
+                  ),
+                  Icon(idIcon, color: Colors.white, size: 40,),
+                ],
+              ),
+              SizedBox(height: 15.0),
+              Row(
+                children: [
+                  Text(
+                    'Full Name:',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    fullname,
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 10.0),
+              Row(
+                children: [
+                  Text(
+                    'D.O.B:',
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    dob,
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 10.0),
+              // Text(
+              //     'License Type:'
+              // ),
+              SizedBox(height: 30.0),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  idNumber,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+              )
+            ],
+          ),
+        )
+    ),
+  );
+}
+
 //card widget - crypto
-Widget cardCrypto(
+Widget reusableCard(
     {double width = double.infinity, double padding = 20, required Widget child}) {
   return Container(
     width: width,
@@ -223,3 +323,163 @@ Widget cardCrypto(
     child: child,
   );
 }
+
+//Crypto Wallets
+Widget cryptoWalletBalance(BuildContext context,
+    {required String total, totalCrypto, required double precent}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 5),
+    child: reusableCard(
+      width: MediaQuery.of(context).size.width - 50,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ClipOval(
+                child: Material(
+                  color: Colors.blueAccent.withOpacity(0.6),
+                  child: InkWell(
+                    splashColor: Colors.red, // inkwell color
+                    child: SizedBox(
+                        width: 56,
+                        height: 56,
+                        child: Icon(
+                          Icons.account_balance_wallet,
+                          color: Colors.white,
+                          size: 25.0,
+                        )),
+                    onTap: () {},
+                  ),
+                ),
+              ),
+              SizedBox(width: 20),
+              Expanded(
+                child: Text('Total Wallet Balance',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 16.0)),
+              ),
+              Row(
+                children: [
+                  Text(
+                    'USD',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Icon(Icons.keyboard_arrow_down, color: Colors.white)
+                ],
+              )
+            ],
+          ),
+          SizedBox(height: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '$total',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                    color: Colors.white),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                decoration: BoxDecoration(
+                    color: precent >= 0 ? Colors.green : Colors.pink,
+                    borderRadius: BorderRadius.all(Radius.circular(30))),
+                child: Text(
+                  precent >= 0 ? '+ $precent %' : '$precent %',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
+            ],
+          ),
+          SizedBox(height: 10),
+          Text(
+            '$totalCrypto',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+                color: Colors.white.withOpacity(0.8)),
+          ),
+          Center(
+            child: Icon(Icons.keyboard_arrow_down,
+                size: 30, color: Colors.white),
+          )
+        ],
+      ),
+    ),
+  );
+}
+
+
+//Crypto items
+Widget listCryptoItem(
+    {required String iconUrl,
+      double precent = 0,
+      required String myCrypto,
+      myBalance,
+      myProfit}) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 20),
+    child: reusableCard(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.network(
+            '$iconUrl',
+            width: 50,
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  '$myCrypto',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                Text(
+                  '$myProfit',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white.withOpacity(0.8),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                '$myBalance',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+              Text(
+                precent >= 0 ? '+ $precent %' : '$precent %',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: precent >= 0 ? Colors.green : Colors.pink,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+
