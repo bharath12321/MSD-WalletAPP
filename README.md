@@ -2,15 +2,19 @@
 
 Mobile Wallet Application
 
-## Getting Started
+!How to run the code!
+Step 1: This entire project was developed in Android Studio, make sure you have the the 
+latest version of android studio installed.
 
-This project is a starting point for a Flutter application.
+Step 2: This is a flutter application, therefore the flutter sdk needs to be installed in 
+android studio in order for this application to run.
 
-A few resources to get you started if this is your first Flutter project:
+Step 3: Create a new flutter project in Android Studio
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Step 4: Import this project into Android Studio
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Step 5: Add a device emulator with a 6" display screen for the best results. (Not necessary)
+
+Step 6: Select that device, and run the main.dart file. 
+
+Note: Do not change the directories of any file in the project as there all are interdependent. 
