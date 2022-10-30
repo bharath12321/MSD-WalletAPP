@@ -3,6 +3,7 @@
 Mobile Wallet Application
 
 !How to run the code!
+
 Step 1: This entire project was developed in Android Studio, make sure you have the the 
 latest version of android studio installed.
 
