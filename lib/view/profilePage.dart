@@ -1,13 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mobile_wallet_app/View/registerPage.dart';
 import 'package:mobile_wallet_app/model/authenticationService.dart';
 import 'package:mobile_wallet_app/view/reusableWidgets/reusable_widget.dart';
-import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+   ProfilePage({Key? key}) : super(key: key);
+
+  final User? user = AuthenticationService().currentUser;
+
+   Future<void> signOut() async {
+     try{
+       await AuthenticationService().signOut();
+     } on FirebaseAuthException catch(e){
+       Toast.show(e.message.toString(), duration: Toast.lengthLong, gravity: Toast.center);
+     }
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +27,6 @@ class ProfilePage extends StatelessWidget {
                       Colors.black,
                       Colors.blueGrey.shade900,
                       Colors.grey.shade900
-                    //Colors.black,
-                    // Colors.purple.shade900,
-                    // Colors.purple.shade600,
-                    // Colors.purple,
-                    // Colors.purple.shade200,
                   ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
           child: SafeArea(
             child: Center(
@@ -64,7 +67,7 @@ class ProfilePage extends StatelessWidget {
                       buildProfileTab(Icons.settings, 'Account Settings'),
                       const SizedBox(height: 15),
                       logOutButton((){
-                        context.read<AuthenticationService>().signOut();
+                        signOut();
                       }),
                     ],
                   ),

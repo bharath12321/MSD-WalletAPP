@@ -1,13 +1,9 @@
-import 'package:mobile_wallet_app/main.dart';
-import 'package:path/path.dart' as Path;
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mobile_wallet_app/View/logInPage.dart';
 
 class AuthenticationService{
-  final FirebaseAuth _firebaseAuth;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  AuthenticationService(this._firebaseAuth);
+  User? get currentUser => _firebaseAuth.currentUser;
 
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
@@ -15,7 +11,7 @@ class AuthenticationService{
     await _firebaseAuth.signOut();
   }
 
-  Future<String?> signIn({email, password}) async {
+  Future<String?> signIn({required email, required password}) async {
     try{
       await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
       return 'Signed in';
@@ -24,13 +20,14 @@ class AuthenticationService{
     }
   }
 
-  Future<String?> signUp({email, password}) async{
+  Future<String?> signUp({required email, required password}) async{
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
       signIn(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       return e.message;
     }
+
 
 
     //

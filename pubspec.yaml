@@ -55,6 +55,7 @@ dependencies:
   card_swiper: ^2.0.4
   flutter_native_splash: ^2.2.12
   crypto_font_icons: ^1.0.1
+  toast: ^0.3.0
 flutter_native_splash:
   image: app_icons/wallet.png
   color: "#000000"

@@ -1,9 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/View/logInPage.dart';
 import 'package:mobile_wallet_app/view/homePage.dart';
 import 'package:mobile_wallet_app/view/reusableWidgets/reusable_widget.dart';
-import 'package:mobile_wallet_app/view_model/userViewModel.dart';
-import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
 
 import '../model/authenticationService.dart';
 
@@ -15,12 +15,23 @@ class RegisterPage extends StatefulWidget {
 }
 
 class RegisterPageState extends State<RegisterPage> {
-
-  static late UserViewModel newUser;
   //text field controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final usernameController = TextEditingController();
+
+  String? errorMessage = '';
+
+  Future<void> signUp() async {
+    try{
+      await AuthenticationService().signUp(email: emailController.text, password: passwordController.text);
+      setState(() {
+        HomePage();
+      });
+    } on FirebaseAuthException catch(e){
+      Toast.show(e.message.toString(), duration: Toast.lengthLong, gravity: Toast.center);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +43,6 @@ class RegisterPageState extends State<RegisterPage> {
                       Colors.black,
                       Colors.blueGrey.shade900,
                       Colors.grey.shade900
-                      // Colors.black,
-                      // Colors.purple.shade900,
-                      // Colors.purple.shade600,
-                      // Colors.purple,
-                      // Colors.purple.shade200,
                     ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
             //Welcome Text
             child: SafeArea(
@@ -116,11 +122,7 @@ class RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 15),
 
               signInSignUpButton(false, () {
-                newUser = UserViewModel(usernameController.text, emailController.text.trim(), passwordController.text.trim());
-                context.read<AuthenticationService>().signUp(
-                  email: newUser.email,
-                  password: newUser.password,
-                );
+                signUp();
               }),
 
               const SizedBox(height: 25),

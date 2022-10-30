@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/View/registerPage.dart';
+import 'package:mobile_wallet_app/view/homePage.dart';
 import 'package:mobile_wallet_app/view/reusableWidgets/reusable_widget.dart';
-import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
 import '../model/authenticationService.dart';
 
 class LogInPage extends StatefulWidget {
@@ -16,6 +18,18 @@ class LogInPageState extends State<LogInPage> {
   //text field controllers
    final emailController = TextEditingController();
    final passwordController = TextEditingController();
+   String? errorMessage = '';
+
+   Future<void> signIn() async {
+     try{
+       await AuthenticationService().signIn(email: emailController.text, password: passwordController.text);
+       setState(() {
+         HomePage();
+       });
+     } on FirebaseAuthException catch(e){
+       Toast.show(e.message.toString(), duration: Toast.lengthLong, gravity: Toast.center);
+     }
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -93,9 +107,7 @@ class LogInPageState extends State<LogInPage> {
 
                       //Sign In
                       signInSignUpButton(true, () {
-                        context.read<AuthenticationService>().signIn(
-                            email: emailController.text.trim(),
-                        password: passwordController.text.trim());
+                        signIn();
                       }),
 
                       // Not a member? Register Now!

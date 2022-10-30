@@ -1,11 +1,9 @@
 import 'package:crypto_font_icons/crypto_font_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_wallet_app/model/authenticationService.dart';
 import 'package:mobile_wallet_app/view/profilePage.dart';
 import 'package:mobile_wallet_app/view/cryptoPage.dart';
 import 'package:mobile_wallet_app/view/generalWalletPage.dart';
 import 'package:mobile_wallet_app/view/walletsPage.dart';
-import 'package:provider/provider.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     const WalletsPage(),
     const GeneralWalletPage(),
     const CryptoWalletPage(),
-    const ProfilePage(),
+    ProfilePage(),
   ];
 
   @override
