@@ -300,6 +300,88 @@ Widget identityCard(String idType, IconData idIcon, String fullname, String dob,
   );
 }
 
+//smart key card
+Widget smartCard(String idType, IconData idIcon, String cardName, String cardNameData, String cardNumber){
+  return Padding(
+    padding: EdgeInsets.fromLTRB(10.0, 10.0, 5.0, 10.0),
+    child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [
+                Color.fromRGBO(0, 4, 40, 1.0),
+                Color.fromRGBO(0, 78, 146, 1.0),
+              ],begin: Alignment.topCenter, end: Alignment.bottomRight),
+          border: const Border(
+            top: BorderSide(color: Colors.white30, width: 0.9),
+            right: BorderSide(color: Colors.white30, width: 0.9),
+            bottom: BorderSide(color: Colors.white30, width: 0.9),
+            left: BorderSide(color: Colors.white30, width: 0.9),
+          ),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        height: 220,
+        width: 375,
+        child: Padding(
+          padding: EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+
+                  Text(
+                    idType,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                    ),
+                  ),
+                  Icon(idIcon, color: Colors.white, size: 40,),
+                ],
+              ),
+              SizedBox(height: 15.0),
+              Row(
+                children: [
+                  Text(
+                    cardName,
+                    style: TextStyle(
+                      fontSize: 15,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    cardNameData,
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 10.0),
+              SizedBox(height: 10.0),
+              // Text(
+              //     'License Type:'
+              // ),
+              SizedBox(height: 50.0),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  cardNumber,
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+              )
+            ],
+          ),
+        )
+    ),
+  );
+}
+
 //card widget - crypto
 Widget reusableCard(
     {double width = double.infinity, double padding = 20, required Widget child}) {

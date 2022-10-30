@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/view/reusableWidgets/reusable_widget.dart';
-import 'package:provider/provider.dart';
 
-import '../model/authenticationService.dart';
-
-class UserHomePage extends StatefulWidget {
-  const UserHomePage({Key? key}) : super(key: key);
+class GeneralWalletPage extends StatefulWidget {
+  const GeneralWalletPage({Key? key}) : super(key: key);
 
   @override
-  State<UserHomePage> createState() => _UserHomePageState();
+  State<GeneralWalletPage> createState() => _GeneralWalletPageState();
 }
 
-class _UserHomePageState extends State<UserHomePage> {
+class _GeneralWalletPageState extends State<GeneralWalletPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +32,7 @@ class _UserHomePageState extends State<UserHomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Home',
+                                  'General Wallet',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 40.0
@@ -44,6 +41,7 @@ class _UserHomePageState extends State<UserHomePage> {
                               ],
                             ),
                         ),
+                        SizedBox(height: 15),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -107,7 +105,74 @@ class _UserHomePageState extends State<UserHomePage> {
 
                             ],
                           ),
-                        )
+                        ),
+                        SizedBox(height: 50),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(15.0, 0.0, 10.0, 2.0),
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.nfc_rounded, color: Colors.white),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        'Smartkey Wallet',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 21.0
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(width: 30),
+                            Padding(
+                              padding: EdgeInsets.only(right: 10.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    color: Colors.white
+                                ),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding:EdgeInsets.only(top: 1.0, bottom: 1.0, left: 6.0),
+                                          child: Text(
+                                            'View All',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 18.0
+                                            ),
+                                          ),
+                                        ),
+                                        Icon(Icons.chevron_right_rounded, color: Colors.black, size: 25.0,)
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        //smart keys start here
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              smartCard('House Key', Icons.house_rounded, 'Address: ', '18 House Avenue', '1235864'),
+                              smartCard('Car Key', Icons.directions_car_outlined, 'License Plate: ', 'EDQ969', '256FED6')
+
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 100,)
                       ],
                     ),
                   )

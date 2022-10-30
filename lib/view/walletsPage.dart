@@ -33,7 +33,7 @@ class WalletsPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Text(
-                              'My Wallets',
+                              'Bank Wallet',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 40.0
