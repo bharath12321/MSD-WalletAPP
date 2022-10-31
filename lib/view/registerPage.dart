@@ -25,7 +25,7 @@ class RegisterPageState extends State<RegisterPage> {
 
   Future<void> signUp() async {
     try{
-      await auth.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+      await AuthenticationService().signUp(email: emailController.text.trim(), password: passwordController.text.trim(), context: context);
       setState(() {
         HomePage();
       });

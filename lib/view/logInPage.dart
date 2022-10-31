@@ -15,8 +15,6 @@ class LogInPage extends StatefulWidget {
 
 class LogInPageState extends State<LogInPage> {
 
-  FirebaseAuth auth = FirebaseAuth.instance;
-
   //text field controllers
    final emailController = TextEditingController();
    final passwordController = TextEditingController();
@@ -25,7 +23,7 @@ class LogInPageState extends State<LogInPage> {
 
    Future<void> signIn() async {
      try{
-       await auth.signInWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim());
+       await AuthenticationService().signIn(email: emailController.text.trim(), password: passwordController.text.trim(), context: context);
        setState(() {
          HomePage();
        });
@@ -33,15 +31,7 @@ class LogInPageState extends State<LogInPage> {
        setState(() {
          errorMessage = e.message;
        });
-       ToastContext().init(context);
-       Toast.show(
-         e.message.toString(),
-         duration: Toast.lengthLong,
-         gravity: Toast.top,
-         textStyle: const TextStyle(
-           color: Colors.redAccent
-         )
-       );
+
      }
    }
 
