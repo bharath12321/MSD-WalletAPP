@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
@@ -35,7 +34,6 @@ class AuthenticationService{
   Future<String?> signUp({required email, required password, required context}) async{
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
-      //signIn(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       ToastContext().init(context);
       Toast.show(

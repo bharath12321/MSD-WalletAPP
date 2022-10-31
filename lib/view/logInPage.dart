@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:mobile_wallet_app/View/registerPage.dart';
 import 'package:mobile_wallet_app/view/homePage.dart';
 import 'package:mobile_wallet_app/view/reusableWidgets/reusable_widget.dart';
-import 'package:toast/toast.dart';
 import '../model/authenticationService.dart';
 
 class LogInPage extends StatefulWidget {

@@ -1,13 +1,4 @@
-import 'package:email_validator/email_validator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_settings_screens/flutter_settings_screens.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:mobile_wallet_app/view/reusableWidgets/iconWidget.dart';
-
-import '../../model/authenticationService.dart';
-
-
 
 //reusable text field
 TextFormField reusableTextField(String text, IconData icon, bool isPassword,

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_wallet_app/View/IntroScreenPages/introPage1.dart';
 import 'package:mobile_wallet_app/View/IntroScreenPages/introPage2.dart';
 import 'package:mobile_wallet_app/View/IntroScreenPages/introPage3.dart';
 import 'package:mobile_wallet_app/View/logInPage.dart';
-import 'package:mobile_wallet_app/View/registerPage.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroPage extends StatefulWidget {

@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-
-
 class UserViewModel {
 
   late String username = "";
