@@ -32,7 +32,7 @@ class _GeneralWalletPageState extends State<GeneralWalletPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'General Wallet',
+                                  'Smart Wallet',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 40.0

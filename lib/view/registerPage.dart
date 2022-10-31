@@ -15,6 +15,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class RegisterPageState extends State<RegisterPage> {
+  FirebaseAuth auth = FirebaseAuth.instance;
   //text field controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -24,12 +25,22 @@ class RegisterPageState extends State<RegisterPage> {
 
   Future<void> signUp() async {
     try{
-      await AuthenticationService().signUp(email: emailController.text, password: passwordController.text);
+      await auth.createUserWithEmailAndPassword(email: emailController.text, password: passwordController.text);
       setState(() {
         HomePage();
       });
     } on FirebaseAuthException catch(e){
-      Toast.show(e.message.toString(), duration: Toast.lengthLong, gravity: Toast.center);
+      ToastContext().init(context);
+      print(e.message);
+      Toast.show(
+          e.message.toString(),
+          duration: Toast.lengthLong,
+          gravity: Toast.top,
+          backgroundColor: Colors.black,
+          textStyle: const TextStyle(
+              color: Colors.redAccent
+          )
+      );
     }
   }
 

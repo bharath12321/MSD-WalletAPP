@@ -15,19 +15,33 @@ class LogInPage extends StatefulWidget {
 
 class LogInPageState extends State<LogInPage> {
 
+  FirebaseAuth auth = FirebaseAuth.instance;
+
   //text field controllers
    final emailController = TextEditingController();
    final passwordController = TextEditingController();
    String? errorMessage = '';
 
+
    Future<void> signIn() async {
      try{
-       await AuthenticationService().signIn(email: emailController.text, password: passwordController.text);
+       await auth.signInWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim());
        setState(() {
          HomePage();
        });
      } on FirebaseAuthException catch(e){
-       Toast.show(e.message.toString(), duration: Toast.lengthLong, gravity: Toast.center);
+       setState(() {
+         errorMessage = e.message;
+       });
+       ToastContext().init(context);
+       Toast.show(
+         e.message.toString(),
+         duration: Toast.lengthLong,
+         gravity: Toast.top,
+         textStyle: const TextStyle(
+           color: Colors.redAccent
+         )
+       );
      }
    }
 
@@ -72,9 +86,7 @@ class LogInPageState extends State<LogInPage> {
                             fontSize: 18.0,
                             color: Colors.white70),
                       ),
-                      const SizedBox(
-                        height: 60,
-                      ),
+                      const SizedBox(height: 60),
                       //Username/Email
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 45.0),
@@ -146,3 +158,4 @@ class LogInPageState extends State<LogInPage> {
      super.dispose();
    }
 }
+

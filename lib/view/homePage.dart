@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
               ),
               GButton(
                 icon: Icons.nfc_rounded,
-                text: 'General Wallet',
+                text: 'Smart Wallet',
               ),
               GButton(
                 icon: CryptoFontIcons.BTC_ALT,

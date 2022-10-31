@@ -1,3 +1,4 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthenticationService{
@@ -16,6 +17,7 @@ class AuthenticationService{
       await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
       return 'Signed in';
     }on FirebaseAuthException catch (e){
+      //Toast.show(e.message.toString(), duration: Toast.lengthLong, gravity: Toast.center);
       return e.message;
     }
   }
@@ -25,12 +27,10 @@ class AuthenticationService{
       await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
       signIn(email: email, password: password);
     } on FirebaseAuthException catch (e) {
+     // Toast.show(e.message.toString(), duration: Toast.lengthLong, gravity: Toast.center);
       return e.message;
     }
 
-
-
-    //
     return null;
   }
 
