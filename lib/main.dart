@@ -1,47 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_wallet_app/view_model/authWrapper.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: Home(),
-  ));
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(const Home());
 }
 
 class Home extends StatelessWidget {
-  //const test({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          'Mobile Wallet',
-          style: TextStyle(
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.deepPurpleAccent,
-      ),
-      body: Center(
-        child: IconButton(
-          onPressed: (){
-            print('Wallet Pressed');
-          },
-          icon: Icon(Icons.account_balance_wallet),
-          color: Colors.deepPurple,
-          iconSize: 50.0,
-        )
-    ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {  },
-        child: Text('Click'),
-        backgroundColor: Colors.purple[800],
-      ),
+    return MaterialApp(
+      theme: ThemeData(
+          fontFamily: 'Nunito',
+          textTheme: TextTheme(
+            bodyText1: TextStyle(color: Colors.white),
+            bodyText2: TextStyle(color: Colors.white),
+          )),
+      debugShowCheckedModeBanner: false,
+      home: AuthenticationWrapper(),
     );
   }
 }
-
-
